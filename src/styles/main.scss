@@ -1,0 +1,16 @@
+body{
+	padding: 40px 60px;
+}
+
+#editor {
+    position: relative;
+    width: 500px;
+    height: 200px;
+}
+
+#mathjs-results { 
+    position: relative;
+    width: 500px;
+    height: 200px;
+    border: 2px black solid;
+}

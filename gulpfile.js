@@ -72,7 +72,7 @@ gulp.task('clean-css',()=>
   .pipe(sass().on('error', sass.logError))
   .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
   .pipe(cleanCSS())
-  .pipe(gulp.dest('./dist/'))
+  .pipe(gulp.dest('./dist/styles/'))
   )
 
 gulp.task('imagemin', () =>

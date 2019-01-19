@@ -1,26 +1,35 @@
 console.log('hey it looks like it worked! Happy Hacking!')
 
-
 ready(function(){
-    //Mimics the bootstrap JS to open navBar
-    let buttonNav = document.getElementsByClassName('navbar-toggler')[0]
-    let navBarNav = document.getElementsByClassName('navbar-nav')[0]
-    let contentNav = document.getElementById('navbarNavAltMarkup')
-    let show = false
-    buttonNav.onclick=(()=>{
-        show = !show
+  setAce()
+  document.getElementById('submit-code-button').onclick = () => { getCode() }
 
-        //Check the status of the show variable and add or remove show class accordingly
-        if(show){
-          contentNav.classList.add('show')
-          navBarNav.classList.add('show')
-        }
-        else{
-          contentNav.classList.remove('show')
-          navBarNav.classList.remove('show')
-        }
-    })
-  })
+})
+    
+
+const getCode = () => {
+  let content = editor.getValue()
+  console.log(content)
+  let evaluateFunction = new Function(content)
+  try {
+    document.getElementById('mathjs-results').innerHTML = evaluateFunction()
+  }
+  catch (e) {
+    console.log('there seems to be an error')
+    console.log(e)
+    throw e
+  }
+  
+}
+
+const setAce = () => {
+  editor.setTheme("ace/theme/sqlserver")
+  var JavaScriptMode = ace.require("ace/mode/javascript").Mode
+  editor.session.setMode(new JavaScriptMode())
+}
+
+
+
 
 
 //Thanks to http://youmightnotneedjquery.com/#ready
