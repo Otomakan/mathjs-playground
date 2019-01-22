@@ -10,13 +10,15 @@ ready(function(){
 const getCode = () => {
   let content = editor.getValue()
   console.log(content)
-  let evaluateFunction = new Function(content)
+  
   try {
+    let evaluateFunction = new Function(content)
     document.getElementById('mathjs-results').innerHTML = evaluateFunction()
   }
   catch (e) {
     console.log('there seems to be an error')
     console.log(e)
+    document.getElementById('mathjs-results').innerHTML = parseError(e)
     throw e
   }
   
@@ -26,6 +28,11 @@ const setAce = () => {
   editor.setTheme("ace/theme/sqlserver")
   var JavaScriptMode = ace.require("ace/mode/javascript").Mode
   editor.session.setMode(new JavaScriptMode())
+}
+
+const parseError = (err) => {
+
+  return "Oops : " + err.toString().match(/:[^)]*/g)[0].substr(1);
 }
 
 
