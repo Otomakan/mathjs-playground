@@ -1,1 +1,1 @@
-body{padding:40px 60px}#editor{position:relative;width:500px;height:200px}#mathjs-results{position:relative;width:500px;height:200px;border:2px #000 solid}
+.code-editor-container{margin:40px 60px}@media only screen and (max-width:500px){.code-editor-container{width:90vw;margin:40px 0}}#editor{position:relative;width:500px;height:200px}@media only screen and (max-width:500px){#editor{width:90vw}}#mathjs-results{position:relative;width:500px;height:200px;border:2px #000 solid}@media only screen and (max-width:500px){#mathjs-results{width:90vw}}
